@@ -1,23 +1,19 @@
-# main.py
 import os
 import json
-import io # Necessário para trabalhar com bytes de imagem em memória
-from typing import List # Importar List para o Pydantic
+import io
+from typing import List
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from PIL import Image # Para abrir e manipular a imagem
+from PIL import Image
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# Importar suas funções do módulo src
 from src.functions import image_pil_to_parts, get_gemini_plant_disease_response
 
-# Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 
-# Configurar o aplicativo FastAPI
 app = FastAPI(
     title="API de Detecção de Doenças de Plantas com Gemini",
     version="1.0.1", # Versão atualizada

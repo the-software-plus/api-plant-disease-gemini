@@ -1,6 +1,5 @@
-# src/functions.py
 import io
-import json # Importante para criar strings JSON de forma segura
+import json
 import google.generativeai as genai
 
 def image_pil_to_parts(pil_image, mime_type="image/jpeg"):
